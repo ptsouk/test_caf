@@ -1,0 +1,39 @@
+{
+  "name": "privateEndpoint-DNSZone",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2022-06-01",
+  "properties": {
+      "description": "Deploy Private DNS Zone for storage account blob Private Endpoints",
+      "displayName": "[HB]: Deploy Private DNS Zone for Private Endpoints (blob)",
+      "notScopes": [],
+      "parameters": {
+        "privateDnsZoneId": {
+          "Value": "/subscriptions/29f2d419-72d6-4255-aa1c-bb787bdfcb12/resourceGroups/cnt-dev-dns/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net"
+        },
+        "privateEndpointGroupId": {
+          "Value": "Blob"
+        },
+        "resourceType": {
+          "Value": "Microsoft.Storage/storageAccounts"
+        },
+        "resourceAbbreviation": {
+          "Value": "staBlob"
+        },
+        "effect": {
+          "Value": "DeployIfNotExists"
+        }
+      },
+      "policyDefinitionId": "${root_scope_resource_id}/providers/Microsoft.Authorization/policyDefinitions/privateEndpoint-DNSZone",
+      "nonComplianceMessages": [
+        {
+          "message": "A private DNS zone must be deployed for private endpoints."
+        }
+      ],
+      "scope": "${current_scope_resource_id}",
+      "enforcementMode": null
+  },
+  "location": "${default_location}",
+  "identity": {
+      "type": "SystemAssigned"
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "extend_es_landing_zones": {
+      "policy_assignments": [],
+      "policy_definitions": [],
+      "policy_set_definitions": [],
+      "role_definitions": [],
+      "archetype_config": {
+        "parameters": {
+          "Deny-Subnet-Without-Nsg": {
+            "effect": "Audit"
+          },
+          "Deploy-VM-Backup": {
+            "effect": "Disabled"
+          }
+        },
+        "access_control": {}
+      }
+    }
+  }
